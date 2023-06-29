@@ -179,7 +179,6 @@ body {
   .hero-slider__container::before {
     content: "";
     background-color: var(--color-primary-bg2);
-    /* background-color: red; */
     position: absolute;
     top: 0;
     width: 100%;
@@ -259,7 +258,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  /* justify-content: center; */
   margin-left: 290px;
 }
 .controls-hero__pagination.orange-pagination .swiper-pagination-bullet {
@@ -305,9 +303,6 @@ body {
 .slider-hero__body {
   overflow: visible;
   width: 934px;
-  /* margin-right: -1000px; */
-  /* min-width: 0; */
-  /* display: flex; */
 }
 .swiper-wrapper {
 }
@@ -482,13 +477,11 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  /* gap: 10px; */
 }
 .feature__item {
   display: grid;
   grid-template: auto auto / 86px 1fr;
   padding: 16px 0;
-  /* min-width: 280px; */
 }
 @media (max-width: 1200px) {
   .feature__item {
@@ -648,18 +641,12 @@ body {
 
 .inspirations__body {
   position: relative;
-  /* position: relative;
-  z-index: 2; */
-  /* height: 100%; */
   height: 586px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex: 0 0 465px;
-  /* flex: 0 0 37.5%; */
-  /* max-width: 465px; */
   align-self: center;
-  /* background-color: var(--color-primary-bg1); */
   padding-right: 80px;
   z-index: 2;
 }
@@ -672,7 +659,6 @@ body {
   width: 100vw;
   background-color: var(--color-primary-bg1);
   z-index: -1;
-  /* transform: translate(-100%, 0); */
 }
 .inspirations__title {
   margin-bottom: 8px;
@@ -680,7 +666,6 @@ body {
 }
 .inspirations__text {
   margin-bottom: 24px;
-  /* max-width: 368px; */
   font-weight: 500;
   line-height: 1.5;
   color: var(--color-gray-2);
@@ -752,17 +737,12 @@ body {
   right: -24px;
 }
 /* ------------------------ */
-.slider-inspirations__slide.swiper-slide-active .slider-inspirations__content {
-  /* opacity: 1; */
-}
 .slider-inspirations__content {
   position: absolute;
   bottom: 24px;
   left: 24px;
   padding: 32px;
   background-color: rgba(255, 255, 255, 0.72);
-  /* opacity: 0; */
-  /* transition: opacity 0.3s ease 0s; */
 }
 .slider-inspirations__content::before {
   position: absolute;
@@ -931,7 +911,6 @@ body {
 .tips__container {
 }
 .tips__title {
-  /* margin-bottom: 32px; */
 }
 /* --------------------- slider ----------------- */
 .tips__slider {
@@ -946,7 +925,6 @@ body {
   margin-right: -32px;
 }
 .slider-tips__slide {
-  /* max-width: 450px; */
   display: flex;
   flex-direction: column;
   transition: box-shadow 0.2s ease 0s;
