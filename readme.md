@@ -15,8 +15,5 @@ https://youtu.be/3z7TRd7tzhE
 
 
 **Результат роботи можна подивитися за лінком:**
-
-[https://pavlo-orhunov.github.io/Funiro-Landing-Page/](https://pavlo-orhunov.github.io/Funiro-Landing-Page/){:target="_blank"}
-
-<a href="https://pavlo-orhunov.github.io/Funiro-Landing-Page/" target="_blank">ссылка</a>
-
+[лінк на Funiro Landing Page](https://pavlo-orhunov.github.io/Funiro-Landing-Page/)
+ _(відкиється у цьому ж вікні)_
