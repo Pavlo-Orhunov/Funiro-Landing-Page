@@ -1,0 +1,108 @@
+.footer-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.2; /* 29/24 */
+  color: var(--color-black);
+}
+._ibg {
+  position: relative;
+}
+._ibg img {
+  /* стиль для картинки, делающей её встраиваемой в нужные места макета */
+  position: absolute;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  white-space: nowrap;
+  transition: background-color 0.4s ease 0s;
+}
+.title-h2 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.2;
+}
+@media (max-width: 767.98px) {
+  .title-h2 {
+    font-size: 36px;
+  }
+}
+
+/* --------- orange Swiper Pagination dots ------------ */
+.orange-pagination .swiper-pagination-bullet {
+  position: relative;
+  width: 27px;
+  height: 27px;
+  background-color: transparent;
+  opacity: 1;
+}
+.orange-pagination .swiper-pagination-bullet::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: #d8d8d8;
+}
+.orange-pagination .swiper-pagination-bullet-active::after {
+  background-color: #e89f71;
+}
+.orange-pagination .swiper-pagination-bullet-active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid #e89f71;
+}
+
+/* --------- orange Swiper Navigation Arrows ------------ */
+.orange-arrow-prev,
+.orange-arrow-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 20px;
+  background-color: rgba(232, 159, 113, 0.329);
+  color: var(--color-primary);
+  transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
+}
+.orange-arrow-prev {
+  transform: rotate(90deg);
+}
+.orange-arrow-next {
+  transform: rotate(-90deg);
+}
+.orange-arrow-prev:hover,
+.orange-arrow-next:hover,
+.orange-arrow-prev:active,
+.orange-arrow-next:active {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+/* ----- in addition to orange - light Swiper Navigation Arrows modifier ------ */
+.light-arrow {
+  color: var(--color-primary);
+  background-color: var(--color-white);
+  box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.16);
+}
+.light-arrow:hover,
+.light-arrow:active {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
