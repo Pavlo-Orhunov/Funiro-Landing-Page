@@ -36,12 +36,12 @@ _(відкиється у цьому ж вікні)_
 
 <br>
 
-**_Preview for desktop layout version:_**
+**_Preview for desktop (1920px) layout version:_**
 
 ![Desktop version preview](https://github.com/Pavlo-Orhunov/Funiro-Landing-Page/blob/master/img/desktop.jpg "Desktop version preview")
 
 <br>
 
-**_Preview for mobile layout version:_**
+**_Preview for mobile (320px) layout version:_**
 
 ![Mobile version preview](https://github.com/Pavlo-Orhunov/Funiro-Landing-Page/blob/master/img/mobile.jpg "Mobile version preview")
