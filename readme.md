@@ -38,10 +38,10 @@ _(відкиється у цьому ж вікні)_
 
 **_Preview for desktop layout version:_**
 
-![Desktop version preview](https://github.com/Pavlo-Orhunov/Home-Services/blob/master/images/desktop.jpg "Desktop version preview")
+![Desktop version preview](https://github.com/Pavlo-Orhunov/Funiro-Landing-Page/blob/master/img/desktop.jpg "Desktop version preview")
 
 <br>
 
 **_Preview for mobile layout version:_**
 
-![Mobile version preview](https://github.com/Pavlo-Orhunov/Home-Services/blob/master/images/mobile.jpg "Mobile version preview")
+![Mobile version preview](https://github.com/Pavlo-Orhunov/Funiro-Landing-Page/blob/master/img/mobile.jpg "Mobile version preview")
