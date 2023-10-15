@@ -59,7 +59,7 @@ function windowLoad() {
     },
   }
   // присваиваем menu__item--clicked при нажатии на menu__arrow
-  if (window.innerWidth > 768 && isMobile.any()) {
+  if (isMobile.any()) {
     const menuArrows = document.querySelectorAll(".menu__arrow")
     const openMenuItems = new Set()
 
