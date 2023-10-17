@@ -1,96 +1,115 @@
 "use strict"
 
-// Прелоадер
-window.onload = function () {
+// ------------- preloader -------------
+document.addEventListener("DOMContentLoaded", function () {
+  var preloader = document.getElementById("preloader")
   setTimeout(function () {
-    var preloader = document.getElementById("preloader")
     preloader.style.opacity = "0"
-    setTimeout(function () {
-      preloader.style.display = "none"
-    }, 1000)
   }, 1000)
+  preloader.addEventListener("transitionend", function () {
+    preloader.style.display = "none"
+  })
+})
+// ------------- END OF preloader -------------
 
-  // после загрузки работаем с формой поиска
-  document.addEventListener("click", documentActions)
+// ------------- shrinking header on scroll -------------
+// Get the header element
+const headerElement = document.querySelector(".header")
 
-  // делегирование события click
-  function documentActions(e) {
-    const targetElement = e.target
-    if (targetElement.classList.contains("search-form__icon")) {
-      document.querySelector(".search-form").classList.toggle("_active")
-    } else if (
-      !targetElement.closest(".search-form") &&
-      document.querySelector(".search-form._active")
-    ) {
-      document.querySelector(".search-form").classList.remove("_active")
-    }
+// Define the callback function for the IntersectionObserver
+const callback = function (entries, observer) {
+  if (entries[0].isIntersecting) {
+    headerElement.classList.remove("header--scrolled")
+  } else {
+    headerElement.classList.add("header--scrolled")
   }
 }
 
-// код для подменю второго уровня
-window.addEventListener("load", windowLoad)
+// Create an IntersectionObserver instance with the callback function
+const headerObserver = new IntersectionObserver(callback)
 
-function windowLoad() {
-  // определяем "мобильность" девайса
-  const isMobile = {
-    Android: function () {
-      return navigator.userAgent.match(/Android/i)
-    },
-    BlackBerry: function () {
-      return navigator.userAgent.match(/BlackBerry/i)
-    },
-    iOS: function () {
-      return navigator.userAgent.match(/iPhone|iPad|iPod/i)
-    },
-    Opera: function () {
-      return navigator.userAgent.match(/Opera Mini/i)
-    },
-    Windows: function () {
-      return navigator.userAgent.match(/IEMobile/i)
-    },
-    any: function () {
-      return (
-        isMobile.Android() ||
-        isMobile.BlackBerry() ||
-        isMobile.iOS() ||
-        isMobile.Opera() ||
-        isMobile.Windows()
-      )
-    },
-  }
-  // присваиваем menu__item--clicked при нажатии на menu__arrow
-  if (isMobile.any()) {
-    const menuArrows = document.querySelectorAll(".menu__arrow")
-    const openMenuItems = new Set()
+// Add error handling in case the header element is not found
+if (headerElement) {
+  // Observe the header element for changes
+  headerObserver.observe(headerElement)
+} else {
+  console.error("Header element not found.")
+}
+// ------------- END OF shrinking header on scroll -------------
 
-    menuArrows.forEach((menuArrow) => {
-      menuArrow.addEventListener("click", (e) => {
-        e.stopPropagation()
-        const clickedItem = menuArrow.parentElement
-        clickedItem.classList.toggle("menu__item--clicked")
-        if (openMenuItems.has(clickedItem)) {
-          openMenuItems.delete(clickedItem)
-        } else {
-          openMenuItems.add(clickedItem)
-        }
-      })
-    })
-    // закрываем меню при клике “в другое место” (отбираем menu__item--clicked при нажатии не на стрелку и не на подменю)
-    document.addEventListener("click", (e) => {
-      if (openMenuItems.size > 0) {
-        const isClickInside = Array.from(openMenuItems).some((openMenuItem) =>
-          openMenuItem.contains(e.target)
-        )
-        if (!isClickInside) {
-          openMenuItems.forEach((openMenuItem) =>
-            openMenuItem.classList.remove("menu__item--clicked")
-          )
-          openMenuItems.clear()
-        }
+// ------------- search form -------------
+document.addEventListener("DOMContentLoaded", function () {
+  const searchIcon = document.querySelector(".search-form__icon")
+  const searchForm = document.querySelector(".search-form")
+
+  searchIcon.addEventListener("click", function () {
+    searchForm.classList.toggle("_active")
+  })
+
+  document.addEventListener("click", function (e) {
+    if (
+      !e.target.closest(".search-form") &&
+      searchForm.classList.contains("_active")
+    ) {
+      searchForm.classList.remove("_active")
+    }
+  })
+})
+// ------------- END OF search form -------------
+
+// ------------- hamburger menu -------------
+const iconMenu = document.querySelector(".icon-menu")
+const menuBody = document.querySelector(".menu__body")
+const menuLinks = document.querySelectorAll(".menu__link")
+const menuSublinks = document.querySelectorAll(".menu__sublink")
+
+if (iconMenu) {
+  iconMenu.addEventListener("click", function (e) {
+    toggleMenu()
+  })
+
+  //event handlers for menu items
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      if (iconMenu.classList.contains("_active")) {
+        toggleMenu()
       }
     })
+  })
+
+  //event handlers for menu subitems
+  menuSublinks.forEach((sublink) => {
+    sublink.addEventListener("click", function (e) {
+      if (iconMenu.classList.contains("_active")) {
+        toggleMenu()
+      }
+    })
+  })
+
+  // toggle menu function
+  function toggleMenu() {
+    document.body.classList.toggle("body--lock")
+    iconMenu.classList.toggle("_active")
+    menuBody.classList.toggle("_active")
   }
 
+  // close hamburger menu on device rotating
+  window.addEventListener("orientationchange", function () {
+    if (document.body.classList.contains("body--lock")) {
+      document.body.classList.remove("body--lock")
+    }
+    if (iconMenu.classList.contains("_active")) {
+      iconMenu.classList.remove("_active")
+    }
+    if (menuBody.classList.contains("_active")) {
+      menuBody.classList.remove("_active")
+    }
+  })
+}
+// ------------- END OF hamburger menu -------------
+
+// ------------- sliders -------------
+window.addEventListener("load", function () {
   // slider-hero
   if (document.querySelector(".slider-hero__body")) {
     new Swiper(".slider-hero__body", {
@@ -111,7 +130,7 @@ function windowLoad() {
         // clickable: true,
       },
 
-      // Navigation arrows (обращаемся через родителя .slider-hero)
+      // Navigation arrows
       navigation: {
         nextEl: ".controls-hero__arrow-next",
         prevEl: ".controls-hero__arrow-prev",
@@ -197,44 +216,53 @@ function windowLoad() {
       },
     })
   }
-}
+})
+// ------------- END OF sliders -------------
 
-// -----Уменьшающийся при скролле header--------------
-// Get the header element
-const headerElement = document.querySelector(".header")
+// ------------- 2-levels menu  (menu + submenu) -------------
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtns = document.querySelectorAll(".menu__btn")
+  const drops = document.querySelectorAll(".menu__sublist")
 
-// Define the callback function for the IntersectionObserver
-const callback = function (entries, observer) {
-  if (entries[0].isIntersecting) {
-    headerElement.classList.remove("header--scrolled")
-  } else {
-    headerElement.classList.add("header--scrolled")
-  }
-}
+  menuBtns.forEach((el) => {
+    el.addEventListener("click", (e) => {
+      let currentBtn = e.currentTarget
+      let drop = currentBtn
+        .closest(".menu__item")
+        .querySelector(".menu__sublist")
 
-// Create an IntersectionObserver instance with the callback function
-const headerObserver = new IntersectionObserver(callback)
+      menuBtns.forEach((el) => {
+        if (el !== currentBtn) {
+          el.classList.remove("menu__btn--active")
+        }
+      })
 
-// Add error handling in case the header element is not found
-if (headerElement) {
-  // Observe the header element for changes
-  headerObserver.observe(headerElement)
-} else {
-  console.error("Header element not found.")
-}
+      drops.forEach((el) => {
+        if (el !== drop) {
+          el.classList.remove("menu__sublist--active")
+        }
+      })
 
-// Гамбургер-меню
-const iconMenu = document.querySelector(".icon-menu")
-const menuBody = document.querySelector(".menu__body")
-if (iconMenu) {
-  iconMenu.addEventListener("click", function (e) {
-    document.body.classList.toggle("body--lock")
-    iconMenu.classList.toggle("_active")
-    menuBody.classList.toggle("_active")
+      drop.classList.toggle("menu__sublist--active")
+      currentBtn.classList.toggle("menu__btn--active")
+    })
   })
-}
 
-// Spoilers
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".menu")) {
+      menuBtns.forEach((el) => {
+        el.classList.remove("menu__btn--active")
+      })
+
+      drops.forEach((el) => {
+        el.classList.remove("menu__sublist--active")
+      })
+    }
+  })
+})
+// ------------- END OF 2-levels menu  (menu + submenu) -------------
+
+// ------------- spoilers -------------
 const spoilersArray = document.querySelectorAll("[data-spoilers]")
 if (spoilersArray.length > 0) {
   const spoilersRegular = Array.from(spoilersArray).filter(function (
@@ -365,7 +393,6 @@ if (spoilersArray.length > 0) {
     }
   }
 }
-
 //SlideToggle
 let _slideUp = (target, duration = 300) => {
   if (!target.classList.contains("_slide")) {
@@ -431,3 +458,4 @@ let _slideToggle = (target, duration = 300) => {
     return _slideUp(target, duration)
   }
 }
+// ------------- END OF spoilers -------------
