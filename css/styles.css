@@ -1594,6 +1594,7 @@ body {
   left: 24px;
   padding: 32px;
   background-color: rgba(255, 255, 255, 0.72);
+  transition: opacity 0.3s ease !important;
 }
 .slider-inspirations__content::before {
   position: absolute;
@@ -1609,6 +1610,9 @@ body {
   background-color: var(--color-primary);
   -webkit-transform: translateX(100%);
   transform: translateX(100%);
+}
+.slider-inspirations__content:hover {
+  opacity: 0.7 !important;
 }
 .slider-inspirations__label {
 }
