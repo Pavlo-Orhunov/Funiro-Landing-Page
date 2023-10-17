@@ -23,7 +23,7 @@ _(відкиється у цьому ж вікні)_
 - HTML using BEM methodology
 - fully responsive layout up to 320px width
 - no use of any preprocessors and assemblers (manual work)
-- hamburger menu on mobile devices
+- hamburger menu on mobile devices (closed on device rotating)
 - Swiper slider
 - spoiler
 - animation
