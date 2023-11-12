@@ -62,6 +62,8 @@ const iconMenu = document.querySelector(".icon-menu")
 const menuBody = document.querySelector(".menu__body")
 const menuLinks = document.querySelectorAll(".menu__link")
 const menuSublinks = document.querySelectorAll(".menu__sublink")
+const headerActions = document.querySelector(".header__actions")
+const headerSearch = document.querySelector(".header__search")
 
 if (iconMenu) {
   iconMenu.addEventListener("click", function (e) {
@@ -84,6 +86,20 @@ if (iconMenu) {
         toggleMenu()
       }
     })
+  })
+
+  // close menu when clicking inside header__actions
+  headerActions.addEventListener("click", function (e) {
+    if (iconMenu.classList.contains("_active")) {
+      toggleMenu()
+    }
+  })
+
+  // close menu when clicking inside header__search
+  headerSearch.addEventListener("click", function (e) {
+    if (iconMenu.classList.contains("_active")) {
+      toggleMenu()
+    }
   })
 
   // toggle menu function
