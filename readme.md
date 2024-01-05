@@ -6,8 +6,6 @@
 
 _15 июн. 2021 г._ <br>
 
-Адаптивная верстка сайта с объяснением действий. Добавление товара в корзину, AJAX подгрузка из JSON
-
 `Лінк на відео`
 https://youtu.be/3z7TRd7tzhE
 
@@ -36,12 +34,30 @@ _(відкиється у цьому ж вікні)_
 
 <br>
 
-**_Preview for desktop (1920px) layout version:_**
+**_Preview for desktop (1920px) layout version:_** ⬇️
 
 ![Desktop version preview](https://github.com/Pavlo-Orhunov/Funiro-Landing-Page/blob/master/img/desktop.jpg "Desktop version preview")
 
 <br>
 
-**_Preview for mobile (320px) layout version:_**
+**_Preview for laptop (1440px) layout version:_** ⬇️
 
-![Mobile version preview](https://github.com/Pavlo-Orhunov/Funiro-Landing-Page/blob/master/img/mobile.jpg "Mobile version preview")
+![Laptop version preview](https://github.com/Pavlo-Orhunov/Funiro-Landing-Page/blob/master/img/laptop.jpg "Laptop version preview")
+
+<br>
+
+**_Preview for mobile-portrait (360px) layout version:_** ⬇️
+
+![Mobile version preview](https://github.com/Pavlo-Orhunov/Funiro-Landing-Page/blob/master/img/mobile-p.jpg "Mobile-portrait version preview")
+
+<br>
+
+**_Preview for mobile-landscape layout version:_** ⬇️
+
+![Mobile version preview](https://github.com/Pavlo-Orhunov/Funiro-Landing-Page/blob/master/img/mobile-l.jpg "Mobile-landscape version preview")
+
+<br>
+
+**_Preview for tablet (810px) layout version:_** ⬇️
+
+![Tablet version preview](https://github.com/Pavlo-Orhunov/Funiro-Landing-Page/blob/master/img/tablet.jpg "Tablet version preview")
